@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>issac.tools</groupId>
+    <artifactId>tools</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+    </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>maven.repository</name>
+            <url>http://10.0.250.29:8081/nexus/content/repositories/public</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>maven.repository</name>
+            <url>http://10.0.250.29:8081/nexus/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>snapshots.new</id>
+            <name>maven.repository</name>
+            <url>http://mirrors.shanghai-electric.com:8081/nexus/repository/maven-public</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>proxy</id>
+            <name>maven.repository</name>
+            <url>http://10.0.250.29:8081/nexus/content/repositories/sec-proxy</url>
+        </repository>
+        <repository>
+            <id>public.new</id>
+            <name>maven.repository</name>
+            <url>http://mirrors.shanghai-electric.com:8081/nexus/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>maven.repository</name>
+            <url>http://10.0.250.29:8081/nexus/content/repositories/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>proxy</id>
+            <name>maven repository</name>
+            <url>http://10.0.250.29:8081/nexus/content/repositories/sec-proxy</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>public.new</id>
+            <name>maven.repository</name>
+            <url>http://mirrors.shanghai-electric.com:8081/nexus/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

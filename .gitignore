@@ -1,0 +1,7 @@
+*.iml
+Maven*.xml
+*.class
+*.log
+*.gz
+*.idea
+target
