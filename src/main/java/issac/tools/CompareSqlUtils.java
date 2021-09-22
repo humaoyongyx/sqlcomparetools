@@ -12,20 +12,19 @@ import java.util.stream.Collectors;
  */
 public class CompareSqlUtils extends BaseConnectionUtils {
 
-    private static String srcUrl = "jdbc:mysql://172.16.206.7:3306/bimcube?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
-    private static String srcUsername = "root";
-    private static String srcPassword = "Ma123";
+    public static String srcUrl = "jdbc:mysql://172.16.206.7:3306/bimcube?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
+    public static String srcUsername = "root";
+    public static String srcPassword = "Ma123";
 
 //    private static String targetUrl = "jdbc:mysql://192.168.6.129:3306/bimcube?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai&useSSL=false";
 //    private static String targetUsername = "root";
 //    private static String targetPassword = "root";
 
-    private static String targetUrl = "jdbc:mysql://172.16.206.7:3306/cube_data_r?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
-    private static String targetUsername = "root";
-    private static String targetPassword = "Ma123";
+    public static String targetUrl = "jdbc:mysql://172.16.206.7:3306/cube_data_r?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
+    public static String targetUsername = "root";
+    public static String targetPassword = "Ma123";
 
-    private static File file = new File("D:\\mycode\\tools\\src\\main\\java\\issac\\tools\\out.sql");
-
+    public static File file = new File("D:\\workcode\\sqlcomparetools\\src\\main\\java\\issac\\tools\\out.sql");
 
 
     public static void printCreateSql() throws SQLException, IOException, ClassNotFoundException {
@@ -61,7 +60,7 @@ public class CompareSqlUtils extends BaseConnectionUtils {
     }
 
     private static boolean checkConcernTables(String[] tables) {
-        if (tables != null || tables.length > 0) {
+        if (tables != null && tables.length > 0) {
             return true;
         }
         return false;
@@ -198,7 +197,7 @@ public class CompareSqlUtils extends BaseConnectionUtils {
         return result;
     }
 
-    private static String extractCreateSql(String rawSql) {
+    public static String extractCreateSql(String rawSql) {
         List<String> replaceList = getReplaceList();
         for (String str : replaceList) {
             rawSql = rawSql.replace(str, "");
@@ -211,9 +210,13 @@ public class CompareSqlUtils extends BaseConnectionUtils {
         List<String> result = new ArrayList<>();
         result.add("CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci");
         result.add("CHARACTER SET utf8mb4 COLLATE utf8mb4_bin");
+        result.add("CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
+        result.add("COLLATE utf8mb4_bin");
+        result.add("COLLATE utf8mb4_0900_ai_ci");
         result.add("ENGINE=InnoDB");
         result.add("DEFAULT CHARSET=utf8mb4");
         result.add("COLLATE=utf8mb4_0900_ai_ci");
+        result.add("COLLATE=utf8mb4_bin");
         result.add("ROW_FORMAT=DYNAMIC");
         result.add("USING BTREE");
         return result;
