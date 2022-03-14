@@ -20,7 +20,7 @@ public class CompareSqlUtils extends BaseConnectionUtils {
 //    private static String targetUsername = "root";
 //    private static String targetPassword = "root";
 
-    public static String targetUrl = "jdbc:mysql://172.16.206.7:3306/cube_data_r?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
+    public static String targetUrl = "jdbc:mysql://172.16.206.7:3306/test1?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
     public static String targetUsername = "root";
     public static String targetPassword = "Ma123";
 
@@ -30,7 +30,7 @@ public class CompareSqlUtils extends BaseConnectionUtils {
     public static void printCreateSql() throws SQLException, IOException, ClassNotFoundException {
         String[] concernTableNames = new String[]{"t_duct_category", "t_shape_duct", "t_duct_type",
                 "t_duct_type_props", "t_sys_category", "t_duct_specs", "t_duct_sys", "t_duct_sys_props"};
-        printCreateSql(concernTableNames);
+        printCreateSql(null);
     }
 
     private static List<String> getConcernTableList(String[] tables) {

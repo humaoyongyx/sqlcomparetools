@@ -1,12 +1,12 @@
 package issac.tools;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * @author issac.hu
@@ -29,7 +29,8 @@ public class FormatFile extends CompareSqlUtils {
                 stringBuffer = new StringBuffer();
             }
             stringBuffer.append(line);
-            if (line.contains(";")) {
+            Pattern compile = Pattern.compile("\\).*ENGINE.*;.*");
+            if (compile.matcher(line).matches()) {
                 sqlList.add(stringBuffer.toString());
             }
         }
@@ -49,6 +50,7 @@ public class FormatFile extends CompareSqlUtils {
             rawSql = rawSql.replace(str, "");
         }
         rawSql = rawSql.replace("\r", "\r\n");
+        rawSql = rawSql.replaceAll("AUTO_INCREMENT=\\d+", "");
         return rawSql;
     }
 }

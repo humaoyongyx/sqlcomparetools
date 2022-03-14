@@ -30,7 +30,7 @@ public class GenTest extends CompareSqlUtils {
     private static void projectLinkGen() throws SQLException, ClassNotFoundException, IOException {
       String[] concernTableNames = new String[]{"t_project", "t_project_link", "t_project_link_history","t_project_link_shape_rel","t_filter"};
       //  String[] concernTableNames = new String[]{"t_filter"};
-        printCompareSql(concernTableNames);
+        printCompareSql(null);
     }
 
 
