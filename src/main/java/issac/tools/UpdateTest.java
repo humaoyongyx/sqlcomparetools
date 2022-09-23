@@ -12,7 +12,7 @@ import java.util.Map;
 public class UpdateTest extends CompareSqlUtils {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        update3();
+        update2();
     }
 
     private static void update1() throws ClassNotFoundException, SQLException {

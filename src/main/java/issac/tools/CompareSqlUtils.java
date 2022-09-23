@@ -20,7 +20,7 @@ public class CompareSqlUtils extends BaseConnectionUtils {
 //    private static String targetUsername = "root";
 //    private static String targetPassword = "root";
 
-    public static String targetUrl = "jdbc:mysql://172.16.206.7:3306/test1?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
+    public static String targetUrl = "jdbc:mysql://172.16.206.7:3306/cube_data_r?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=false&useTimezone=true&serverTimezone=Asia/Shanghai";
     public static String targetUsername = "root";
     public static String targetPassword = "Ma123";
 
@@ -219,6 +219,9 @@ public class CompareSqlUtils extends BaseConnectionUtils {
         result.add("COLLATE=utf8mb4_bin");
         result.add("ROW_FORMAT=DYNAMIC");
         result.add("USING BTREE");
+        result.add("COLLATE utf8mb4_0900_as_ci");
+        result.add("COLLATE=utf8mb4_0900_as_ci");
+        result.add("CHARACTER SET utf32 COLLATE utf32_general_ci");
         return result;
     }
 
